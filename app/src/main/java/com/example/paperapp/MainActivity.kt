@@ -33,55 +33,60 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PaperAppTheme {
-                Column(horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.SpaceBetween) {
-                    Image(
-                        painter = painterResource(id = R.drawable.neww_image),
-                        contentDescription = "Image"
-                    )
-                    Spacer(modifier = Modifier.height(25.dp))
-                    Text(text = "Score", fontSize = 30.sp, textAlign = TextAlign.Center)
-                    Text(text = "0 / 4", fontSize = 50.sp, textAlign = TextAlign.Center)
-                    Spacer(modifier = Modifier.height(90.dp))
-                    Row(
-                        horizontalArrangement = Arrangement.SpaceEvenly,
-                        verticalAlignment = Alignment.CenterVertically
-                    )
-                    {
-                        Column(
-                            modifier = Modifier
-                                .align(Alignment.CenterVertically)
-                                .padding(30.dp)
-                        ) {
-                            Text(text = "You Chose", fontSize = 16.sp)
-                            Text(text = "Rock", fontSize = 32.sp, fontWeight = FontWeight.Bold)
-                        }
-
-                        Column(
-                            modifier = Modifier
-                                .align(Alignment.CenterVertically)
-                                .padding(30.dp)
-                        ) {
-                            Text(text = "Android Chose", fontSize = 16.sp)
-                            Text(text = " Paper", fontSize = 32.sp, fontWeight = FontWeight.Bold)
-                        }
-                    }
-                    Spacer(modifier = Modifier.height(50.dp))
-                    Row(verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceEvenly)
-                    {
-                        shape("Rock")
-                        shape("Paper")
-                        shape("Scissors")
-
-                    }
-                    Spacer(modifier = Modifier.height(40.dp))
-
-                    Text(text = "#JetpackCompose", fontSize = 30.sp, fontFamily = FontFamily.SansSerif)
-
-                }
+                MainComposable()
             }
         }
+    }
+}
+@Composable
+fun MainComposable()
+{
+    Column(horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.SpaceBetween) {
+        Image(
+            painter = painterResource(id = R.drawable.neww_image),
+            contentDescription = "Image"
+        )
+        Spacer(modifier = Modifier.height(25.dp))
+        Text(text = "Score", fontSize = 30.sp, textAlign = TextAlign.Center)
+        Text(text = "0 / 4", fontSize = 50.sp, textAlign = TextAlign.Center)
+        Spacer(modifier = Modifier.height(90.dp))
+        Row(
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            verticalAlignment = Alignment.CenterVertically
+        )
+        {
+            Column(
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .padding(30.dp)
+            ) {
+                Text(text = "You Chose", fontSize = 16.sp)
+                Text(text = "Rock", fontSize = 32.sp, fontWeight = FontWeight.Bold)
+            }
+
+            Column(
+                modifier = Modifier
+                    .align(Alignment.CenterVertically)
+                    .padding(30.dp)
+            ) {
+                Text(text = "Android Chose", fontSize = 16.sp)
+                Text(text = " Paper", fontSize = 32.sp, fontWeight = FontWeight.Bold)
+            }
+        }
+        Spacer(modifier = Modifier.height(50.dp))
+        Row(verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceEvenly)
+        {
+            shape("Rock")
+            shape("Paper")
+            shape("Scissors")
+
+        }
+        Spacer(modifier = Modifier.height(40.dp))
+
+        Text(text = "#JetpackCompose", fontSize = 30.sp, fontFamily = FontFamily.SansSerif)
+
     }
 }
 @Composable
@@ -103,8 +108,6 @@ heightDp = 800)
 @Composable
 fun DefaultPreview() {
     PaperAppTheme {
-        Column {
-            Image(painter = painterResource(id = R.drawable.neww_image), contentDescription ="Image")
+       MainComposable()
         }
-    }
 }
